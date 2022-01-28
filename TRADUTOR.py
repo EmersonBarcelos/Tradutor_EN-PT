@@ -9,6 +9,7 @@ file_path = ''
 tradulen = StringVar()
 tradupass = StringVar()
 
+#Funções para as opções
 def set_file_path(path):
     global file_path
     file_path = path
@@ -36,6 +37,7 @@ def run_pt():
     tradupass.set(convert)
 
 
+#Criando barras com opções
 menu_bar = Menu(janela)
 file_menu = Menu(menu_bar, tearoff=0)
 file_menu.add_command(label='Salvar', command=save_as)
@@ -47,7 +49,10 @@ run_bar.add_command(label='EN/PT', command=run_en)
 run_bar.add_command(label='PT/EN', command=run_pt)
 menu_bar.add_cascade(label='Traduzir', menu=run_bar)
 
+#Criando os campos para captura e apresentação dos textos
 janela.config(menu=menu_bar)
+Label(janela, text="DIGITAR TEXTO ↓").pack()
 Entry(janela, textvariable=tradulen, width=50).pack(pady=10)
+Label(janela, text="TRADUÇÃO ↓").pack()
 Entry(janela, textvariable=tradupass, width=50).pack(pady=10)
 janela.mainloop()
